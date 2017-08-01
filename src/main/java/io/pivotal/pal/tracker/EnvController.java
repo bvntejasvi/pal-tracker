@@ -14,6 +14,8 @@ public class EnvController {
 
     private final String memoryLimit;
 
+    private  String memoryLimit1;
+
     private final String cfInstanceIndex;
 
     private final String cfInstanceAddress;
