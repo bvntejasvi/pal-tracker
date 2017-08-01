@@ -12,9 +12,11 @@ repositories {
 
 dependencies {
     compile("org.springframework.boot:spring-boot-starter-web")
-    testCompile("org.springframework.boot:spring-boot-starter-test")
     compile("org.springframework.boot:spring-boot-starter-jdbc")
     compile("org.mariadb.jdbc:mariadb-java-client:2.0.2")
+    compile("org.springframework.boot:spring-boot-starter-actuator")
+
+    testCompile("org.springframework.boot:spring-boot-starter-test")
 }
 
 def developmentDbUrl = "jdbc:mariadb://localhost:3306/tracker_dev?user=tracker"
@@ -22,6 +24,7 @@ def developmentDbUrl = "jdbc:mariadb://localhost:3306/tracker_dev?user=tracker"
 bootRun.environment([
         "WELCOME_MESSAGE": "hello",
         "SPRING_DATASOURCE_URL": "jdbc:mariadb://localhost:3306/tracker_dev?user=tracker",
+        "MANAGEMENT_SECURITY_ENABLED": false,
 ])
 
 def testDbUrl = "jdbc:mariadb://localhost:3306/tracker_test?user=tracker"
@@ -29,6 +32,7 @@ def testDbUrl = "jdbc:mariadb://localhost:3306/tracker_test?user=tracker"
 test.environment([
         "WELCOME_MESSAGE": "Hello from test",
         "SPRING_DATASOURCE_URL": "jdbc:mariadb://localhost:3306/tracker_test?user=tracker",
+        "MANAGEMENT_SECURITY_ENABLED": false,
 ])
 
 flyway {

@@ -5,8 +5,12 @@ import io.pivotal.pal.tracker.TimeEntryController;
 import io.pivotal.pal.tracker.TimeEntry;
 import org.junit.Before;
 import org.junit.Test;
+import org.mockito.Mock;
+import org.springframework.boot.actuate.metrics.CounterService;
+import org.springframework.boot.actuate.metrics.GaugeService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.w3c.dom.css.Counter;
 
 import java.util.List;
 
@@ -21,11 +25,13 @@ import static org.mockito.Mockito.verify;
 public class TimeEntryControllerTest {
     private TimeEntryRepository timeEntryRepository;
     private TimeEntryController controller;
+    private CounterService counter = mock(CounterService.class);
+    private GaugeService gauge = mock(GaugeService.class);
 
     @Before
     public void setUp() throws Exception {
         timeEntryRepository = mock(TimeEntryRepository.class);
-        controller = new TimeEntryController(timeEntryRepository);
+        controller = new TimeEntryController(timeEntryRepository, counter, gauge);
     }
 
     @Test
