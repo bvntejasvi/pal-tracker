@@ -2,59 +2,8 @@ cf-api-url: CF_API_URL
 cf-username: CF_USERNAME
 cf-password: CF_PASSWORD
 cf-org: CF_ORG
-github-repository: git@github.com:bvntejasvi/pal-tracker.git
+github-repository: git@github.com:dimplekataria01/pal-tracker.git
 github-private-key: |
   -----BEGIN RSA PRIVATE KEY-----
-  Proc-Type: 4,ENCRYPTED
-  DEK-Info: AES-128-CBC,39E652FFE6A0F61E9B72EC5B9D39A458
 
-  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
   -----END RSA PRIVATE KEY-----
