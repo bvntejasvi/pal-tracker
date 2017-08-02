@@ -1,6 +1,7 @@
 package io.pivotal.pal.tracker;
 
 import org.springframework.boot.actuate.health.Health;
+import org.springframework.boot.actuate.health.HealthIndicator;
 import org.springframework.stereotype.Component;
 
 /**
@@ -21,7 +22,7 @@ public class TimeEntryHealthIndicator implements HealthIndicator {
     public Health health() {
         Health.Builder builder = new Health.Builder();
 
-        if(timeEntryRepo.list().size() > MAX_TIME_ENTRIES) {
+        if(timeEntryRepo.list().size() < MAX_TIME_ENTRIES) {
             builder.up();
         } else {
             builder.down();
